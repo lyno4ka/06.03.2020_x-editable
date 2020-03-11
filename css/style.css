@@ -15,3 +15,11 @@
     font-style: italic;
 }
 
+.btn{
+    margin-left: 5px;
+}
+
+.form-control {
+	display: inline-block;
+	width: auto;
+}
