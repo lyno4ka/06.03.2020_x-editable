@@ -33,15 +33,14 @@ function clickHandler(event) {
     // inputElement.focus();
     inputElement.select();
 
-    inputElement.addEventListener('blur', function(event) {
-        console.log(targetElement);
-        targetElement.parentNode.appendChild(targetElement);
-        console.log(  targetElement.parentNode.appendChild(targetElement));
-		targetElement.parentNode.removeChild(inputElement);
-		targetElement.parentNode.removeChild(btnSave);
-		targetElement.parentNode.removeChild(btnCancel);
-	});
+    inputElement.parentNode.removeChild(targetElement);
 
+    inputElement.addEventListener('blur', function(event) {
+        inputElement.parentNode.appendChild(targetElement);
+        inputElement.remove();
+        btnSave.remove();
+        btnCancel.remove();
+	});
 
     inputElement.addEventListener('keyup', function(event) {
         switch (event.which) {
@@ -54,7 +53,6 @@ function clickHandler(event) {
                 break;
         }    
     });
-
     
     btnSave.addEventListener('mousedown', function () {
         targetElement.innerText = inputElement.value;
